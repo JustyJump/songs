@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .about_us{
+            width:100%;
+            float: left;
+            background-color: #fafafa;
+            border-radius: 5px;
+            border: 1px solid silver;
+            box-sizing: border-box;
+            padding: 1%;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <h1 th:text="${title}"/>
+    <div id="about_us">
+        <p>Melon Music is a unique media company that’s powered by community, our in-house creative team, and the artists themselves. We serve music knowledge to over 100 million people each month.
+
+            Melon Music started as a platform for annotating clever rap lyrics—our original name was Rap Music. Over the years, we’ve expanded our mission to include more than hip-hop, and more than just lyrics. Every song has a story that needs to be told, and the biggest names in music—including Travis Scott, Billie Eilish, and Ariana Grande—come to Melon Music to give the world insight into their art.</p>
+    </div>
+</div>
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

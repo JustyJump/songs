@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Media Web</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-view{
+            background-color: green;
+            color: white;
+        }
+        .btn-view:hover{
+            background-color: yellow;
+            color: black;
+        }
+
+        .btn-add{
+            background-color: green;
+            color: white;
+        }
+
+        .btn-add:hover{
+            background-color: green;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1>Songs Lyrics</h1>
+    <div th:each="el: ${songs}" class="alert alert-info mt-2">
+        <h3 th:text="${el.name}"/>
+        <p th:text="${el.singer}"/>
+        <a th:href="'/media/'+ ${el.id}" class="btn btn-view">View text</a>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+    <h1>Add Song</h1>
+    <form action="/media/add" method="post">
+        <input type="text" name="name" placeholder="Enter name" class="form-control"><br>
+        <input type="text" name="singer" placeholder="Enter singer" class="form-control"><br>
+        <textarea name="full_song" placeholder="Enter text" class="form-control"></textarea><br>
+        <button type="submit" class="btn btn-add">Add</button>
+    </form>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

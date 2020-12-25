@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Media Web</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .btn-edit{
+            background-color: blue;
+            color: white;
+        }
+        .btn-remove{
+            background-color: red;
+            color: white;
+        }
+        .btn:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <div th:each="el: ${song}" class="alert alert-info mt-2">
+        <h1 th:text="${el.name}"/>
+        <p th:text="${el.full_song}"/>
+        <div class="row row-cols-1 row-cols-md-3">
+            <div class="col">
+                <a th:href="'/media/'+ ${el.id} + '/edit'" class="btn btn-edit">Edit</a>
+            </div>
+            <div class="col">
+                <form th:action="'/media/' + ${el.id} + '/remove'" method="post">
+                    <button class="btn btn-remove mr-2" type="submit">Remove</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>
